@@ -14,7 +14,7 @@ This project is mostly started as a personal project because it's something I fe
 I'll be working on it whenever I have some spare time, so if anyone wants to join me in creating in then hit me up. 
 Anyone is welcome!
 
-Hit me up on Twitter: [@mhaagens]: https://twitter.com/mhaagens
+Hit me up on Twitter: [@mhaagens](https://twitter.com/mhaagensli)
 
 ### What can you help with?
 
@@ -28,4 +28,8 @@ Hit me up on Twitter: [@mhaagens]: https://twitter.com/mhaagens
 - ```git clone https://github.com/mhaagens/gql-to-mobx.git```
 - ```yarn install```
 - Run webpack in watch mode: ```npm start```
-- Then you can run ```node ./dist/index.js```, if you change anything they will be caught on the next run.
+- Then you can run ```node ./dist/index.js```, if you change anything it will be caught on the next run.
+
+### Libraries:
+- [MobX State Tree](https://github.com/mobxjs/mobx-state-tree)
+- [GraphQL](http://graphql.org/)
