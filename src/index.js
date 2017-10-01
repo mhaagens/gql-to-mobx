@@ -20,16 +20,18 @@ export default (
   };
 
   // Parse GQL AST
-  const { definitions } = parse(type);
+  const { definitions: [ ast ] } = parse(type);
+
+  console.log(ast);
 
   // Get the name of the model
-  const modelName = definitions[0].name.value;
+  const modelName = ast.name.value;
 
   // Initialize model object
   const model = {};
 
   // Parse type fields
-  for (let field of definitions[0].fields) {
+  for (let field of ast.fields) {
     
     // Set field name
     let fieldName = field.name.value;
