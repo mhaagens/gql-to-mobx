@@ -1,0 +1,25 @@
+{
+  "name": "gql-to-mobx",
+  "version": "0.0.1",
+  "description": "Convert GraphQL types into MobX State Tree models.",
+  "main": "./dist/index.js",
+  "author": "Martin Haagensli",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack --config webpack.config.babel.js"
+  },
+  "prettier": {
+    "maxWidth": 160
+  },
+  "peerDependencies": {
+    "graphql": "^0.11.6",
+    "mobx": "^3.3.0",
+    "mobx-state-tree": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "webpack": "^3.6.0"
+  }
+}

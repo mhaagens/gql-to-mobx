@@ -1,0 +1,1 @@
+![screenshot](https://raw.githubusercontent.com/mhaagens/gql-to-mobx/master/screenshot_1.png)
