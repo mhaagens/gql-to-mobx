@@ -23,3 +23,9 @@ Hit me up on Twitter: [@mhaagens]: https://twitter.com/mhaagens
 - [ ] TypeScript/FlowType type-checking
 - [ ] Tests
 - [ ] ?
+
+### How to get started
+- ```git clone https://github.com/mhaagens/gql-to-mobx.git```
+- ```yarn install```
+- Run webpack in watch mode: ```npm start```
+- Then you can run ```node ./dist/index.js```, if you change anything they will be caught on the next run.
