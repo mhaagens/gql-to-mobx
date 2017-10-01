@@ -25,7 +25,7 @@ export default {
   },
   resolve: {
     alias: {
-      gqlToModel: devDir + "/index.js"
+      "gql-to-mobx": devDir + "/index.js"
     }
   },
   plugins: [
