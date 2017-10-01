@@ -8,30 +8,44 @@ export default (
     subtypes: {}
   }
 ) => {
+
   console.time("parse");
-  const fieldMap = Object.assign({
+
+  // Map GQL types to MST types
+  const fieldMap = {
     Int: types.number,
     String: types.string,
     Boolean: types.boolean,
     Enum: types.enumeration
-  });
+  };
 
-  const parsed = parse(type);
+  // Parse GQL AST
+  const { definitions } = parse(type);
 
-  const modelName = parsed.definitions[0].name.value;
+  // Get the name of the model
+  const modelName = definitions[0].name.value;
+
+  // Initialize model object
   const model = {};
 
-  for (let field of parsed.definitions[0].fields) {
+  // Parse type fields
+  for (let field of definitions[0].fields) {
+    
+    // Set field name
     let fieldName = field.name.value;
+    // Ready field type
     let fieldType = null;
 
     //console.log(inspect(field, null, 10))
 
     if (field.type.name) {
+      // If regular field
       fieldType = field.type.name.value;
     } else if (field.type.type) {
+      // If required field (?)
       fieldType = field.type.type.name.value;
     } else {
+      // Field not found
       throw new Error("Missing field name.");
     }
 
@@ -40,7 +54,9 @@ export default (
       fieldType.length &&
       (fieldMap[fieldType] || options.subtypes[fieldName])
     ) {
+      // If we have a field with name and a type/subtype
       if (!options.subtypes[fieldName]) {
+        // If it's a regular type, set the type, otherwise subtype is already passed in
         model[fieldName] = fieldMap[fieldType];
       }
     } else {
@@ -48,5 +64,6 @@ export default (
     }
   }
   console.timeEnd("parse");
+  // Return the merged types!
   return types.model(`${modelName}`, Object.assign(model, options.subtypes));
 };
